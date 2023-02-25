@@ -1,12 +1,13 @@
 import axios from 'axios'
 
-const API_URL = '/api/tickets/'
+const API_URL = 'https://supportui-backend.onrender.com/api/tickets/'
 
 // Get ticket notes
 const getNotes = async (ticketId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
+      'Access-Control-Allow-Origin': '*'
     },
   }
 
@@ -20,6 +21,7 @@ const createNote = async (noteText, ticketId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
+      'Access-Control-Allow-Origin': '*'
     },
   }
 

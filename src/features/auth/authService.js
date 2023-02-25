@@ -1,10 +1,18 @@
 import axios from 'axios'
 
-const API_URL = '/api/users/'
+const API_URL = 'https://supportui-backend.onrender.com/api/users/'
 
 // Register user
 const register = async (userData) => {
-  const response = await axios.post(API_URL, userData)
+
+  const response = await axios({
+    method: 'post',
+    url: API_URL,
+    data: userData,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000/register'
+    }
+  }); 
 
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data))
@@ -14,8 +22,15 @@ const register = async (userData) => {
 
 // Login user
 const login = async (userData) => {
-  const response = await axios.post(API_URL + 'login', userData)
-
+  const response = await axios({
+    method: 'post',
+    url: API_URL + 'login',
+    data: userData,
+    headers: {
+      'Access-Control-Allow-Origin': 'http://localhost:3000/login'
+    }
+  });
+   
   if (response.data) {
     localStorage.setItem('user', JSON.stringify(response.data))
   }
