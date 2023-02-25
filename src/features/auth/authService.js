@@ -10,7 +10,7 @@ const register = async (userData) => {
     url: API_URL,
     data: userData,
     headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:3000/register'
+      'Access-Control-Allow-Origin': '*'
     }
   }); 
 
@@ -27,7 +27,7 @@ const login = async (userData) => {
     url: API_URL + 'login',
     data: userData,
     headers: {
-      'Access-Control-Allow-Origin': 'http://localhost:3000/login'
+      'Access-Control-Allow-Origin': '*'
     }
   });
    
